@@ -4,6 +4,7 @@ services:
   app:
     image: node:22
     working_dir: /usr/src/app
+    restart: unless-stopped
     volumes:
       - ./:/usr/src/app
     command: sh -c "npm install && npm start"
