@@ -32,7 +32,7 @@ router.post('/combined', auth, async (req, res) => {
     // 1. Получаем стату из Keitaro
     const keitaroData = await keitaroReport({ date, dateFrom, dateTo, grouping, filters, offer_id, btag, metrics });
     // 2. Получаем спенды через API, чтобы структура была нормализована
-    const spendRes = await fetch('http://localhost/api/spend/report', {
+    const spendRes = await fetch('http://app:3001/api/spend/report', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
