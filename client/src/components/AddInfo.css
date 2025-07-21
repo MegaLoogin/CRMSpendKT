@@ -1,0 +1,161 @@
+.addinfo-bg {
+  background: #f5f6fa;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 48px;
+}
+.addinfo-card {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 6px 32px #1976d220, 0 1.5px 8px #0002;
+  padding: 32px 28px 28px 28px;
+  min-width: 340px;
+  max-width: 98vw;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 18px;
+}
+.addinfo-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin: 0 0 10px 0;
+  letter-spacing: 0.5px;
+  color: #1a237e;
+  text-align: center;
+}
+.addinfo-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.addinfo-field {
+  width: 100%;
+  margin-bottom: 0;
+}
+.addinfo-input,
+.addinfo-field > div, /* для react-select и MUI DatePicker */
+.addinfo-field .MuiInputBase-root {
+  width: 100%;
+  min-height: 42px;
+  box-sizing: border-box;
+  border-radius: 7px;
+}
+.addinfo-input {
+  padding: 10px 14px;
+  border-radius: 7px;
+  border: 1.5px solid #b0bec5;
+  font-size: 15px;
+  outline: none;
+  transition: border 0.16s, box-shadow 0.16s;
+  background: #f8fafc;
+  color: #222;
+}
+.addinfo-input:focus {
+  border: 1.5px solid #1976d2;
+  box-shadow: 0 2px 8px #1976d220;
+  background: #fff;
+}
+/* Стилизация react-select */
+.addinfo-field .css-13cymwt-control, .addinfo-field .css-1nmdiq5-menu {
+  min-height: 42px;
+  border-radius: 7px;
+  font-size: 15px;
+}
+.addinfo-field .css-13cymwt-control {
+  border: 1.5px solid #b0bec5;
+  background: #f8fafc;
+  box-shadow: none;
+  transition: border 0.16s;
+}
+.addinfo-field .css-13cymwt-control:hover, .addinfo-field .css-13cymwt-control:focus {
+  border: 1.5px solid #1976d2;
+}
+.addinfo-field .css-t3ipsp-control {
+  border-color: #1976d2;
+  box-shadow: 0 2px 8px #1976d220;
+}
+.addinfo-field .css-1nmdiq5-menu {
+  border-radius: 7px;
+}
+/* MUI DatePicker */
+.addinfo-field .MuiInputBase-root {
+  min-height: 42px;
+  border-radius: 7px;
+  font-size: 15px;
+  background: #f8fafc;
+}
+.addinfo-field .MuiOutlinedInput-notchedOutline {
+  border-width: 1.5px;
+  border-color: #b0bec5;
+}
+.addinfo-field .Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: #1976d2;
+}
+.addinfo-field .MuiInputBase-input {
+  padding: 10px 14px;
+  font-size: 15px;
+}
+.addinfo-btn {
+  width: 100%;
+  padding: 12px 0;
+  background: #1565c0;
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 8px;
+  box-shadow: 0 2px 8px #1976d220;
+  transition: background 0.16s, color 0.16s;
+}
+.addinfo-btn:hover {
+  background: #0d47a1;
+  color: #e3eafc;
+}
+.addinfo-summary {
+  color: #fff;
+  background: #1976d2;
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-size: 16px;
+  margin-bottom: 2px;
+  text-align: center;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  box-shadow: 0 2px 8px #1976d220;
+}
+.addinfo-message {
+  color: #1b5e20;
+  background: #c8e6c9;
+  border-radius: 5px;
+  padding: 7px 10px;
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  margin-top: 2px;
+  font-weight: 500;
+}
+.addinfo-error {
+  color: #b71c1c;
+  background: #ffcdd2;
+  border-radius: 5px;
+  padding: 7px 10px;
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  margin-top: 2px;
+  font-weight: 500;
+}
+@media (max-width: 600px) {
+  .addinfo-card {
+    min-width: 0;
+    width: 98vw;
+    padding: 16px 2vw 12px 2vw;
+  }
+  .addinfo-title {
+    font-size: 18px;
+  }
+} 

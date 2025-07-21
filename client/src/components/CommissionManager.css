@@ -1,0 +1,158 @@
+.commission-bg {
+  background: #f5f6fa;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 48px;
+}
+.commission-card {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 4px 24px #0001, 0 1.5px 8px #0001;
+  padding: 32px 28px 28px 28px;
+  min-width: 340px;
+  max-width: 98vw;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 18px;
+}
+.commission-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin: 0 0 10px 0;
+  letter-spacing: 0.5px;
+  color: #222;
+  text-align: center;
+}
+.commission-form {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+.commission-input {
+  flex: 1 1 160px;
+  min-width: 120px;
+  padding: 10px 14px;
+  border-radius: 7px;
+  border: 1.2px solid #cfd8dc;
+  font-size: 15px;
+  outline: none;
+  transition: border 0.16s, box-shadow 0.16s;
+  background: #f8fafc;
+  color: #222;
+}
+.commission-input:focus {
+  border: 1.2px solid #1976d2;
+  box-shadow: 0 2px 8px #1976d210;
+  background: #fff;
+}
+.commission-btn {
+  padding: 10px 18px;
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.16s, color 0.16s;
+  margin-left: 4px;
+}
+.commission-btn:hover {
+  background: #1251a3;
+}
+.commission-btn.cancel {
+  background: #b0bec5;
+  color: #222;
+}
+.commission-btn.cancel:hover {
+  background: #90a4ae;
+}
+.commission-message {
+  color: #388e3c;
+  background: #e8f5e9;
+  border-radius: 5px;
+  padding: 7px 10px;
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  margin-top: 2px;
+}
+.commission-error {
+  color: #b71c1c;
+  background: #fbe9e7;
+  border-radius: 5px;
+  padding: 7px 10px;
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  margin-top: 2px;
+}
+.commission-table-wrap {
+  margin-top: 10px;
+  overflow-x: auto;
+}
+.commission-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: #fafbfc;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px #0001;
+  overflow: hidden;
+}
+.commission-table th, .commission-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #e0e0e0;
+  text-align: left;
+  font-size: 15px;
+}
+.commission-table th {
+  background: #f5f6fa;
+  font-weight: 600;
+  color: #222;
+}
+.commission-table tr:last-child td {
+  border-bottom: none;
+}
+.commission-table-btn {
+  padding: 6px 14px;
+  margin-right: 6px;
+  background: #e3eafc;
+  color: #1976d2;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.14s, color 0.14s;
+}
+.commission-table-btn:hover {
+  background: #1976d2;
+  color: #fff;
+}
+.commission-table-btn.danger {
+  background: #ffebee;
+  color: #b71c1c;
+}
+.commission-table-btn.danger:hover {
+  background: #b71c1c;
+  color: #fff;
+}
+@media (max-width: 600px) {
+  .commission-card {
+    min-width: 0;
+    width: 98vw;
+    padding: 16px 2vw 12px 2vw;
+  }
+  .commission-form {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .commission-table th, .commission-table td {
+    padding: 7px 6px;
+    font-size: 13px;
+  }
+} 

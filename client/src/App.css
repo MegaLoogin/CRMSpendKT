@@ -1,0 +1,242 @@
+body, #root, .App {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  width: 100vw;
+  box-sizing: border-box;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+}
+.sidebar {
+  min-width: 220px;
+  width: 220px;
+  height: 100vh;
+  background: #e9ecf2;
+  color: #222;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  border-top-right-radius: 18px;
+  border-bottom-right-radius: 18px;
+  box-shadow: 2px 0 16px #0002;
+  padding: 0;
+  z-index: 100;
+}
+.sidebar-user {
+  padding: 32px 0 18px 0;
+  text-align: center;
+  border-bottom: 1px solid #dbe2ea;
+  margin-bottom: 8px;
+}
+.sidebar-username {
+  font-size: 15px;
+  color: #333;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+.sidebar-btag {
+  font-size: 12px;
+  color: #7b8a99;
+  margin-top: 2px;
+  font-weight: 400;
+}
+.sidebar-title {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-align: center;
+  margin: 0;
+  padding: 32px 0 24px 0;
+  background: #1a237e;
+  border-bottom: 1px solid #283593;
+  box-shadow: 0 2px 8px #0002;
+}
+.sidebar a {
+  color: #2a3a4d;
+  text-decoration: none;
+  padding: 16px 36px 16px 28px;
+  font-size: 17px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: background 0.18s, color 0.18s, font-weight 0.18s;
+  border-left: 4px solid transparent;
+  border-radius: 0 18px 18px 0;
+  margin: 2px 0;
+  position: relative;
+}
+.sidebar a.active {
+  background: #d0e6fa;
+  border-left: 4px solid #2196f3;
+  font-weight: 600;
+  color: #1565c0;
+  box-shadow: 2px 2px 12px #2196f320;
+}
+.sidebar a:hover {
+  background: #e3f2fd;
+  color: #1976d2;
+}
+.sidebar-logout {
+  margin: 0 24px 24px 24px;
+  padding: 12px 0;
+  background: #e0e4ea;
+  color: #2a3a4d;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s;
+  box-shadow: 0 2px 8px #0001;
+  margin-top: auto;
+  display: block;
+}
+.sidebar-logout:hover {
+  background: #b0bec5;
+  color: #1976d2;
+}
+.sidebar-links {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  margin-top: 12px;
+}
+.main-content.with-sidebar {
+  flex: 1 1 auto;
+  min-width: 0;
+  background: #f4f6fa;
+  /* padding-top: 40px; */
+  transition: margin 0.2s;
+}
+.main-content {
+  min-height: 100vh;
+  background: #f4f6fa;
+  transition: margin 0.2s;
+  /* padding-top: 40px; */
+}
+@media (max-width: 700px) {
+  .sidebar {
+    width: 0;
+    min-width: 0;
+    padding: 0;
+    overflow: hidden;
+    transition: width 0.2s, min-width 0.2s;
+  }
+  .sidebar.open {
+    width: 220px;
+    min-width: 220px;
+    overflow: visible;
+    box-shadow: 2px 0 16px #0002;
+  }
+  .sidebar-title {
+    font-size: 0;
+    padding: 18px 0;
+    border-bottom: none;
+  }
+  .sidebar a {
+    font-size: 0;
+    padding: 16px 0 16px 0;
+    justify-content: center;
+    gap: 0;
+  }
+  .sidebar.open a {
+    font-size: 17px;
+    padding: 16px 36px 16px 28px;
+    justify-content: flex-start;
+    gap: 12px;
+  }
+  .sidebar-logout {
+    font-size: 0;
+    padding: 12px 0;
+    margin: 0 8px 8px 8px;
+  }
+  .sidebar.open .sidebar-logout {
+    font-size: 16px;
+    margin: 0 24px 24px 24px;
+  }
+  .sidebar-user {
+    padding: 18px 0 12px 0;
+  }
+  .sidebar.open .sidebar-user {
+    padding: 32px 0 18px 0;
+  }
+  .sidebar-user > * {
+    font-size: 0;
+  }
+  .sidebar.open .sidebar-user > * {
+    font-size: 15px;
+  }
+  .sidebar-bg {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.18);
+    z-index: 99;
+  }
+  .sidebar-bg.open {
+    display: block;
+  }
+  .sidebar-toggle {
+    display: block;
+    position: fixed;
+    top: 18px;
+    left: 16px;
+    z-index: 120;
+    background: #fff;
+    border: 1px solid #dbe2ea;
+    border-radius: 8px;
+    width: 38px;
+    height: 38px;
+    box-shadow: 0 2px 8px #0001;
+    cursor: pointer;
+    font-size: 26px;
+    color: #1976d2;
+    transition: background 0.18s;
+  }
+}
+@media (min-width: 701px) {
+  .sidebar-toggle {
+    display: none;
+  }
+  .sidebar-bg {
+    display: none !important;
+  }
+}

@@ -1,0 +1,106 @@
+.login-bg {
+  min-height: 100vh;
+  width: 100vw;
+  background: #f5f6fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.login-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px #0001, 0 1.5px 8px #0001;
+  padding: 36px 28px 28px 28px;
+  min-width: 320px;
+  max-width: 90vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+}
+.login-avatar {
+  font-size: 48px;
+  margin-bottom: 8px;
+  background: #e3eafc;
+  border-radius: 50%;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px #1976d220;
+}
+.login-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+  letter-spacing: 0.5px;
+  color: #222;
+}
+.login-input {
+  width: 100%;
+  padding: 11px 14px;
+  border-radius: 7px;
+  border: 1.2px solid #cfd8dc;
+  font-size: 15px;
+  outline: none;
+  transition: border 0.16s, box-shadow 0.16s;
+  margin-bottom: 2px;
+  background: #f8fafc;
+  color: #222;
+}
+.login-input:focus {
+  border: 1.2px solid #1976d2;
+  box-shadow: 0 2px 8px #1976d210;
+  background: #fff;
+}
+.login-btn {
+  width: 100%;
+  padding: 11px 0;
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 8px;
+  box-shadow: 0 2px 8px #1976d210;
+  transition: background 0.16s, color 0.16s;
+}
+.login-btn:hover {
+  background: #1251a3;
+  color: #e3eafc;
+}
+.login-error {
+  color: #b71c1c;
+  background: #fbe9e7;
+  border-radius: 5px;
+  padding: 7px 10px;
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  margin-top: 2px;
+}
+.login-link {
+  font-size: 14px;
+  color: #1976d2;
+  margin-top: 8px;
+}
+.login-link a {
+  color: #1976d2;
+  text-decoration: underline;
+  font-weight: 500;
+  transition: color 0.16s;
+}
+.login-link a:hover {
+  color: #0d47a1;
+}
+@media (max-width: 500px) {
+  .login-card {
+    min-width: 0;
+    width: 98vw;
+    padding: 20px 4vw 14px 4vw;
+  }
+} 
