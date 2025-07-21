@@ -15,9 +15,10 @@ const GROUPING_OPTIONS = [
   // можно добавить другие опции
 ];
 const METRICS_OPTIONS = [
-  { value: 'clicks', label: 'Клики' },
-  { value: 'campaign_unique_clicks', label: 'Уникальные клики' },
+  // { value: 'clicks', label: 'Клики' },
+  { value: 'campaign_unique_clicks', label: 'Ун. клики' },
   { value: 'conversions', label: 'Конверсии' },
+  { value: 'sales', label: 'Продажи'},
   { value: 'sale_revenue', label: 'Доход' },
   { value: 'uepc_confirmed', label: 'uEPC' },
   // можно добавить другие метрики
@@ -32,6 +33,7 @@ const fieldLabels = {
   uepc_confirmed: 'uEPC',
   day: 'День',
   clicks: 'Клики',
+  sales: 'Продажи',
   sub_id_6: 'BTag',
   conversions: 'Конверсии',
   campaign_unique_clicks: 'Ун. клики',
