@@ -216,6 +216,25 @@ function Stats() {
     );
   };
 
+  // Получаем btag и роли пользователя из localStorage
+  const userBtag = localStorage.getItem('btag') || '';
+  let userRoles = [];
+  try {
+    userRoles = JSON.parse(localStorage.getItem('roles') || '[]');
+  } catch {}
+  const isAdmin = userRoles.includes('admin');
+
+  // btag: если не админ, всегда свой и нельзя менять
+  useEffect(() => {
+    if (!isAdmin) {
+      setBtag(userBtag);
+    }
+  }, [isAdmin, userBtag]);
+
+  // Фильтрация опций группировки: не-админ не может выбрать sub_id_6
+  const filteredGroupingOptions = isAdmin ? GROUPING_OPTIONS : GROUPING_OPTIONS.filter(opt => opt.value !== 'sub_id_6');
+  const filteredGroupingMacros = isAdmin ? groupingMacros : groupingMacros.filter(m => !m.grouping.includes('sub_id_6'));
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
@@ -431,22 +450,25 @@ function Stats() {
                 filterOption={filterOption}
               />
             </div>
-            <div style={{minWidth: isMobile ? '100%' : 300, width: isMobile ? '100%' : 'auto'}}>
-              <Select
-                options={btagOptions}
-                value={selectedBtag}
-                onChange={opt => setBtag(opt ? opt.value : '')}
-                isClearable
-                isLoading={usersLoading}
-                placeholder="Выберите пользователя с btag (поиск по имени или btag)"
-                noOptionsMessage={() => usersLoading ? 'Загрузка...' : 'Нет совпадений'}
-                filterOption={filterBtagOption}
-              />
-            </div>
+            {/* btag: только для админа показываем фильтр */}
+            {isAdmin && (
+              <div style={{minWidth: isMobile ? '100%' : 300, width: isMobile ? '100%' : 'auto'}}>
+                <Select
+                  options={btagOptions}
+                  value={selectedBtag}
+                  onChange={opt => setBtag(opt ? opt.value : '')}
+                  isClearable
+                  isLoading={usersLoading}
+                  placeholder="Выберите пользователя с btag (поиск по имени или btag)"
+                  noOptionsMessage={() => usersLoading ? 'Загрузка...' : 'Нет совпадений'}
+                  filterOption={filterBtagOption}
+                />
+              </div>
+            )}
             <div style={{minWidth: isMobile ? '100%' : 200, width: isMobile ? '100%' : 'auto'}}>
               <Select
-                options={groupingMacros.map(m => ({ value: m.value, label: m.label }))}
-                value={groupingMacros.map(m => ({ value: m.value, label: m.label })).find(opt => opt.value === selectedMacro) || null}
+                options={filteredGroupingMacros.map(m => ({ value: m.value, label: m.label }))}
+                value={filteredGroupingMacros.map(m => ({ value: m.value, label: m.label })).find(opt => opt.value === selectedMacro) || null}
                 onChange={opt => opt && applyMacro(opt.value)}
                 isClearable={false}
                 placeholder="Макрос группировки"
@@ -502,8 +524,8 @@ function Stats() {
             }}>
               <div style={{minWidth: isMobile ? '100%' : 300, width: isMobile ? '100%' : 'auto'}}>
                 <Select
-                  options={GROUPING_OPTIONS}
-                  value={GROUPING_OPTIONS.filter(opt => grouping.includes(opt.value))}
+                  options={filteredGroupingOptions}
+                  value={filteredGroupingOptions.filter(opt => grouping.includes(opt.value))}
                   onChange={opts => setGrouping(opts ? opts.map(o => o.value) : [])}
                   isMulti
                   placeholder="Группировка (можно выбрать несколько)"
