@@ -8,6 +8,12 @@ const path = require('path');
 const app = express();
 app.use(express.json());
 
+// Логирование всех запросов
+app.use((req, res, next) => {
+  console.log(`[${new Date().toISOString()}] ${req.method} ${req.originalUrl}`);
+  next();
+});
+
 const authRoutes = require('./routes/auth');
 app.use('/api/auth', authRoutes);
 
