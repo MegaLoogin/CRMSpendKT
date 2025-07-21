@@ -3,6 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const User = require('./models/User');
 const bcrypt = require('bcryptjs');
+const path = require('path');
 
 const app = express();
 app.use(express.json());
@@ -52,6 +53,12 @@ mongoose.connect(MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true })
     await createInitialAdmin();
   })
   .catch((err) => console.error('MongoDB connection error:', err));
+
+app.use(express.static(path.join(__dirname, '../client/build')));
+
+app.get(/^\/(?!api).*/, (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
+});
 
 app.get('/', (req, res) => {
   res.send('CRM API работает!');
